@@ -1,0 +1,35 @@
+⏳  Waiting for Spring Boot process...
+✅  Found PID 74159 — writing metrics to results/metrics_500m_platform_s1_20260714_123333.csv
+  CPU:  59.0%  RSS:  183.0 MB  Heap: 30/314 MB  Threads: 24  GC/s: 4
+  CPU:  68.8%  RSS:  209.4 MB  Heap: 35/314 MB  Threads: 64  GC/s: 7
+  CPU:  47.9%  RSS:  211.7 MB  Heap: 40/314 MB  Threads: 64  GC/s: 6
+  CPU:  58.4%  RSS:  215.8 MB  Heap: 37/314 MB  Threads: 64  GC/s: 7
+  CPU:  33.4%  RSS:  223.5 MB  Heap: 44/314 MB  Threads: 64  GC/s: 6
+  CPU:  31.6%  RSS:  224.7 MB  Heap: 35/314 MB  Threads: 64  GC/s: 7
+  CPU:  48.9%  RSS:  226.5 MB  Heap: 40/314 MB  Threads: 64  GC/s: 6
+  CPU:  20.0%  RSS:  221.7 MB  Heap: 46/314 MB  Threads: 64  GC/s: 6
+  CPU:  24.1%  RSS:  222.1 MB  Heap: 37/314 MB  Threads: 64  GC/s: 7
+  CPU:  29.8%  RSS:  209.2 MB  Heap: 43/314 MB  Threads: 64  GC/s: 6
+  CPU:  31.6%  RSS:  208.3 MB  Heap: 34/314 MB  Threads: 64  GC/s: 6
+  CPU:  26.2%  RSS:  203.5 MB  Heap: 38/314 MB  Threads: 64  GC/s: 7
+  CPU:  27.4%  RSS:  204.0 MB  Heap: 42/314 MB  Threads: 64  GC/s: 6
+  CPU:  33.4%  RSS:  204.2 MB  Heap: 46/314 MB  Threads: 64  GC/s: 6
+  CPU:  22.1%  RSS:  204.4 MB  Heap: 37/314 MB  Threads: 64  GC/s: 7
+  CPU:  19.0%  RSS:  204.6 MB  Heap: 39/314 MB  Threads: 64  GC/s: 6
+  CPU:  23.8%  RSS:  204.8 MB  Heap: 41/314 MB  Threads: 64  GC/s: 6
+  CPU:  28.9%  RSS:  209.2 MB  Heap: 47/314 MB  Threads: 64  GC/s: 6
+  CPU:  23.8%  RSS:  205.3 MB  Heap: 48/314 MB  Threads: 64  GC/s: 6
+  CPU:  36.4%  RSS:  220.0 MB  Heap: 55/314 MB  Threads: 64  GC/s: 5
+  CPU:  30.7%  RSS:  220.1 MB  Heap: 53/314 MB  Threads: 64  GC/s: 5
+  CPU:  23.8%  RSS:  220.2 MB  Heap: 51/314 MB  Threads: 64  GC/s: 4
+  CPU:  27.4%  RSS:  220.4 MB  Heap: 48/314 MB  Threads: 64  GC/s: 5
+  CPU:  20.4%  RSS:  220.8 MB  Heap: 44/314 MB  Threads: 64  GC/s: 5
+  CPU:  29.2%  RSS:  223.2 MB  Heap: 57/314 MB  Threads: 64  GC/s: 5
+  CPU:  17.3%  RSS:  223.4 MB  Heap: 53/314 MB  Threads: 64  GC/s: 4
+  CPU:  30.4%  RSS:  225.2 MB  Heap: 51/314 MB  Threads: 64  GC/s: 5
+  CPU:  28.2%  RSS:  225.3 MB  Heap: 47/314 MB  Threads: 64  GC/s: 5
+  CPU:  25.4%  RSS:  213.4 MB  Heap: 43/314 MB  Threads: 64  GC/s: 5
+  CPU:  31.4%  RSS:  213.5 MB  Heap: 56/314 MB  Threads: 64  GC/s: 5
+  CPU:  23.6%  RSS:  213.6 MB  Heap: 51/314 MB  Threads: 64  GC/s: 4
+  CPU:  27.2%  RSS:  213.6 MB  Heap: 47/314 MB  Threads: 64  GC/s: 5
+  CPU:  31.0%  RSS:  213.9 MB  Heap: 49/314 MB  Threads: 64  GC/s: 2

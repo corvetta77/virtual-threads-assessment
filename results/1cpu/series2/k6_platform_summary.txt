@@ -1,0 +1,858 @@
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: k6/benchmark.js
+        output: json (results/1cpu/series2/k6_platform.json)
+
+     scenarios: (100.00%) 2 scenarios, 370 max VUs, 2m0s max duration (incl. graceful stop):
+              * process_endpoint: 250 looping VUs for 1m30s (exec: testProcess, gracefulStop: 30s)
+              * status_endpoint: 120 looping VUs for 1m30s (exec: testStatus, gracefulStop: 30s)
+
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53505->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53506->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53507->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53508->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53511->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53510->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53509->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53512->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53514->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53513->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53517->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53515->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53518->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53524->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53516->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53523->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53521->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53520->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53519->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53522->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53534->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53536->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53533->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53537->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53532->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53531->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53535->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53530->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53529->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53528->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53527->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53526->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53543->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53525->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53542->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53541->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53550->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53547->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53551->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53556->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53546->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53549->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53545->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53548->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53539->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53559->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53544->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53557->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53560->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53540->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53538->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53558->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53569->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53568->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53575->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53567->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53571->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53562->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53561->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53570->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53566->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53563->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53555->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53573->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53574->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53553->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53552->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53572->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53564->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53565->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53604->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53603->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53601->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53608->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53600->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53606->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53605->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53599->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53585->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53584->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53583->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53597->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53582->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53581->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53596->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53580->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53579->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53595->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53607->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53578->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53554->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53641->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53642->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53640->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53670->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53636->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53635->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53669->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53634->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53668->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53706->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53709->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53689->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53688->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53705->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53687->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53704->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53686->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53703->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53693->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53685->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53691->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53683->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53690->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53684->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53576->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53682->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53700->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53681->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53631->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53697->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53673->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53680->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53674->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53679->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53672->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53696->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53678->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53632->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53677->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53630->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53666->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53770->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53588->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53629->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53592->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53587->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53625->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53649->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53660->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53648->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53659->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53616->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53748->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53655->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53646->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53624->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53645->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53613->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53644->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53653->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53643->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53657->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53652->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53745->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53610->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53775->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53768->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53658->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53735->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53771->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53577->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53671->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53772->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53609->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53667->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53767->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53732->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53765->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53840->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53766->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53731->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53763->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53762->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53835->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53761->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53774->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53760->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53993->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53759->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53961->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53662->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53714->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53586->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53959->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53756->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53832->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53661->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53751->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53754->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53789->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53758->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53724->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53729->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53622->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53713->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53818->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53722->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53819->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53612->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53784->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53711->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53815->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53695->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53738->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53783->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53781->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53710->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53856->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53737->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53676->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53853->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53736->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53804->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53960->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53733->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53589->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53776->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53823->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53650->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53593->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53850->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53999->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53728->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53805->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53802->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53720->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53800->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53799->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53719->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:54044->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53797->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:54043->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53796->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:54041->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53717->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:54040->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53793->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:54038->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53792->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:54037->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:54036->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53716->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:54035->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53791->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53790->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:54012->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53665->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:54011->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:54010->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53664->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:54009->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:54039->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53627->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53663->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53757->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53824->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53723->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53619->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53621->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53620->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53656->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53617->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53651->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53779->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53744->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53742->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53741->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53740->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53785->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53769->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53782->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53734->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53626->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:53981->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53750->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53808->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:53846->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:54046->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:54045->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:54042->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:54048->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:54047->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:54049->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:54053->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:54056->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:54052->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:54058->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:54063->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": read tcp 127.0.0.1:54060->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:54061->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:54054->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/status\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:54059->127.0.0.1:8080: read: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": dial tcp 127.0.0.1:8080: connect: connection reset by peer"
+time="2026-07-14T12:49:04+02:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/process\": read tcp 127.0.0.1:54051->127.0.0.1:8080: read: connection reset by peer"
+
+running (0m01.0s), 370/370 VUs, 1779 complete and 0 interrupted iterations
+process_endpoint   [   1% ] 250 VUs  0m01.0s/1m30s
+status_endpoint    [   1% ] 120 VUs  0m01.0s/1m30s
+
+running (0m02.0s), 370/370 VUs, 3332 complete and 0 interrupted iterations
+process_endpoint   [   2% ] 250 VUs  0m02.0s/1m30s
+status_endpoint    [   2% ] 120 VUs  0m02.0s/1m30s
+
+running (0m03.0s), 370/370 VUs, 4882 complete and 0 interrupted iterations
+process_endpoint   [   3% ] 250 VUs  0m03.0s/1m30s
+status_endpoint    [   3% ] 120 VUs  0m03.0s/1m30s
+
+running (0m04.0s), 370/370 VUs, 6427 complete and 0 interrupted iterations
+process_endpoint   [   4% ] 250 VUs  0m04.0s/1m30s
+status_endpoint    [   4% ] 120 VUs  0m04.0s/1m30s
+
+running (0m05.0s), 370/370 VUs, 7979 complete and 0 interrupted iterations
+process_endpoint   [   6% ] 250 VUs  0m05.0s/1m30s
+status_endpoint    [   6% ] 120 VUs  0m05.0s/1m30s
+
+running (0m06.0s), 370/370 VUs, 9525 complete and 0 interrupted iterations
+process_endpoint   [   7% ] 250 VUs  0m06.0s/1m30s
+status_endpoint    [   7% ] 120 VUs  0m06.0s/1m30s
+
+running (0m07.0s), 370/370 VUs, 11075 complete and 0 interrupted iterations
+process_endpoint   [   8% ] 250 VUs  0m07.0s/1m30s
+status_endpoint    [   8% ] 120 VUs  0m07.0s/1m30s
+
+running (0m08.0s), 370/370 VUs, 12651 complete and 0 interrupted iterations
+process_endpoint   [   9% ] 250 VUs  0m08.0s/1m30s
+status_endpoint    [   9% ] 120 VUs  0m08.0s/1m30s
+
+running (0m09.0s), 370/370 VUs, 14175 complete and 0 interrupted iterations
+process_endpoint   [  10% ] 250 VUs  0m09.0s/1m30s
+status_endpoint    [  10% ] 120 VUs  0m09.0s/1m30s
+
+running (0m10.0s), 370/370 VUs, 15739 complete and 0 interrupted iterations
+process_endpoint   [  11% ] 250 VUs  0m10.0s/1m30s
+status_endpoint    [  11% ] 120 VUs  0m10.0s/1m30s
+
+running (0m11.0s), 370/370 VUs, 17285 complete and 0 interrupted iterations
+process_endpoint   [  12% ] 250 VUs  0m11.0s/1m30s
+status_endpoint    [  12% ] 120 VUs  0m11.0s/1m30s
+
+running (0m12.0s), 370/370 VUs, 18832 complete and 0 interrupted iterations
+process_endpoint   [  13% ] 250 VUs  0m12.0s/1m30s
+status_endpoint    [  13% ] 120 VUs  0m12.0s/1m30s
+
+running (0m13.0s), 370/370 VUs, 20390 complete and 0 interrupted iterations
+process_endpoint   [  14% ] 250 VUs  0m13.0s/1m30s
+status_endpoint    [  14% ] 120 VUs  0m13.0s/1m30s
+
+running (0m14.0s), 370/370 VUs, 21930 complete and 0 interrupted iterations
+process_endpoint   [  16% ] 250 VUs  0m14.0s/1m30s
+status_endpoint    [  16% ] 120 VUs  0m14.0s/1m30s
+
+running (0m15.0s), 370/370 VUs, 23482 complete and 0 interrupted iterations
+process_endpoint   [  17% ] 250 VUs  0m15.0s/1m30s
+status_endpoint    [  17% ] 120 VUs  0m15.0s/1m30s
+
+running (0m16.0s), 370/370 VUs, 25022 complete and 0 interrupted iterations
+process_endpoint   [  18% ] 250 VUs  0m16.0s/1m30s
+status_endpoint    [  18% ] 120 VUs  0m16.0s/1m30s
+
+running (0m17.0s), 370/370 VUs, 26591 complete and 0 interrupted iterations
+process_endpoint   [  19% ] 250 VUs  0m17.0s/1m30s
+status_endpoint    [  19% ] 120 VUs  0m17.0s/1m30s
+
+running (0m18.0s), 370/370 VUs, 28144 complete and 0 interrupted iterations
+process_endpoint   [  20% ] 250 VUs  0m18.0s/1m30s
+status_endpoint    [  20% ] 120 VUs  0m18.0s/1m30s
+
+running (0m19.0s), 370/370 VUs, 29692 complete and 0 interrupted iterations
+process_endpoint   [  21% ] 250 VUs  0m19.0s/1m30s
+status_endpoint    [  21% ] 120 VUs  0m19.0s/1m30s
+
+running (0m20.0s), 370/370 VUs, 31240 complete and 0 interrupted iterations
+process_endpoint   [  22% ] 250 VUs  0m20.0s/1m30s
+status_endpoint    [  22% ] 120 VUs  0m20.0s/1m30s
+
+running (0m21.0s), 370/370 VUs, 32791 complete and 0 interrupted iterations
+process_endpoint   [  23% ] 250 VUs  0m21.0s/1m30s
+status_endpoint    [  23% ] 120 VUs  0m21.0s/1m30s
+
+running (0m22.0s), 370/370 VUs, 34333 complete and 0 interrupted iterations
+process_endpoint   [  24% ] 250 VUs  0m22.0s/1m30s
+status_endpoint    [  24% ] 120 VUs  0m22.0s/1m30s
+
+running (0m23.0s), 370/370 VUs, 35905 complete and 0 interrupted iterations
+process_endpoint   [  26% ] 250 VUs  0m23.0s/1m30s
+status_endpoint    [  26% ] 120 VUs  0m23.0s/1m30s
+
+running (0m24.0s), 370/370 VUs, 37440 complete and 0 interrupted iterations
+process_endpoint   [  27% ] 250 VUs  0m24.0s/1m30s
+status_endpoint    [  27% ] 120 VUs  0m24.0s/1m30s
+
+running (0m25.0s), 370/370 VUs, 38990 complete and 0 interrupted iterations
+process_endpoint   [  28% ] 250 VUs  0m25.0s/1m30s
+status_endpoint    [  28% ] 120 VUs  0m25.0s/1m30s
+
+running (0m26.0s), 370/370 VUs, 40560 complete and 0 interrupted iterations
+process_endpoint   [  29% ] 250 VUs  0m26.0s/1m30s
+status_endpoint    [  29% ] 120 VUs  0m26.0s/1m30s
+
+running (0m27.0s), 370/370 VUs, 42104 complete and 0 interrupted iterations
+process_endpoint   [  30% ] 250 VUs  0m27.0s/1m30s
+status_endpoint    [  30% ] 120 VUs  0m27.0s/1m30s
+
+running (0m28.0s), 370/370 VUs, 43656 complete and 0 interrupted iterations
+process_endpoint   [  31% ] 250 VUs  0m28.0s/1m30s
+status_endpoint    [  31% ] 120 VUs  0m28.0s/1m30s
+
+running (0m29.0s), 370/370 VUs, 45206 complete and 0 interrupted iterations
+process_endpoint   [  32% ] 250 VUs  0m29.0s/1m30s
+status_endpoint    [  32% ] 120 VUs  0m29.0s/1m30s
+
+running (0m30.0s), 370/370 VUs, 46744 complete and 0 interrupted iterations
+process_endpoint   [  33% ] 250 VUs  0m30.0s/1m30s
+status_endpoint    [  33% ] 120 VUs  0m30.0s/1m30s
+
+running (0m31.0s), 370/370 VUs, 48309 complete and 0 interrupted iterations
+process_endpoint   [  34% ] 250 VUs  0m31.0s/1m30s
+status_endpoint    [  34% ] 120 VUs  0m31.0s/1m30s
+
+running (0m32.0s), 370/370 VUs, 49868 complete and 0 interrupted iterations
+process_endpoint   [  36% ] 250 VUs  0m32.0s/1m30s
+status_endpoint    [  36% ] 120 VUs  0m32.0s/1m30s
+
+running (0m33.0s), 370/370 VUs, 51420 complete and 0 interrupted iterations
+process_endpoint   [  37% ] 250 VUs  0m33.0s/1m30s
+status_endpoint    [  37% ] 120 VUs  0m33.0s/1m30s
+
+running (0m34.0s), 370/370 VUs, 52974 complete and 0 interrupted iterations
+process_endpoint   [  38% ] 250 VUs  0m34.0s/1m30s
+status_endpoint    [  38% ] 120 VUs  0m34.0s/1m30s
+
+running (0m35.0s), 370/370 VUs, 54524 complete and 0 interrupted iterations
+process_endpoint   [  39% ] 250 VUs  0m35.0s/1m30s
+status_endpoint    [  39% ] 120 VUs  0m35.0s/1m30s
+
+running (0m36.0s), 370/370 VUs, 56065 complete and 0 interrupted iterations
+process_endpoint   [  40% ] 250 VUs  0m36.0s/1m30s
+status_endpoint    [  40% ] 120 VUs  0m36.0s/1m30s
+
+running (0m37.0s), 370/370 VUs, 57622 complete and 0 interrupted iterations
+process_endpoint   [  41% ] 250 VUs  0m37.0s/1m30s
+status_endpoint    [  41% ] 120 VUs  0m37.0s/1m30s
+
+running (0m38.0s), 370/370 VUs, 59183 complete and 0 interrupted iterations
+process_endpoint   [  42% ] 250 VUs  0m38.0s/1m30s
+status_endpoint    [  42% ] 120 VUs  0m38.0s/1m30s
+
+running (0m39.0s), 370/370 VUs, 60740 complete and 0 interrupted iterations
+process_endpoint   [  43% ] 250 VUs  0m39.0s/1m30s
+status_endpoint    [  43% ] 120 VUs  0m39.0s/1m30s
+
+running (0m40.0s), 370/370 VUs, 62297 complete and 0 interrupted iterations
+process_endpoint   [  44% ] 250 VUs  0m40.0s/1m30s
+status_endpoint    [  44% ] 120 VUs  0m40.0s/1m30s
+
+running (0m41.0s), 370/370 VUs, 63841 complete and 0 interrupted iterations
+process_endpoint   [  46% ] 250 VUs  0m41.0s/1m30s
+status_endpoint    [  46% ] 120 VUs  0m41.0s/1m30s
+
+running (0m42.0s), 370/370 VUs, 65394 complete and 0 interrupted iterations
+process_endpoint   [  47% ] 250 VUs  0m42.0s/1m30s
+status_endpoint    [  47% ] 120 VUs  0m42.0s/1m30s
+
+running (0m43.0s), 370/370 VUs, 66941 complete and 0 interrupted iterations
+process_endpoint   [  48% ] 250 VUs  0m43.0s/1m30s
+status_endpoint    [  48% ] 120 VUs  0m43.0s/1m30s
+
+running (0m44.0s), 370/370 VUs, 68492 complete and 0 interrupted iterations
+process_endpoint   [  49% ] 250 VUs  0m44.0s/1m30s
+status_endpoint    [  49% ] 120 VUs  0m44.0s/1m30s
+
+running (0m45.0s), 370/370 VUs, 70055 complete and 0 interrupted iterations
+process_endpoint   [  50% ] 250 VUs  0m45.0s/1m30s
+status_endpoint    [  50% ] 120 VUs  0m45.0s/1m30s
+
+running (0m46.0s), 370/370 VUs, 71588 complete and 0 interrupted iterations
+process_endpoint   [  51% ] 250 VUs  0m46.0s/1m30s
+status_endpoint    [  51% ] 120 VUs  0m46.0s/1m30s
+
+running (0m47.0s), 370/370 VUs, 73138 complete and 0 interrupted iterations
+process_endpoint   [  52% ] 250 VUs  0m47.0s/1m30s
+status_endpoint    [  52% ] 120 VUs  0m47.0s/1m30s
+
+running (0m48.0s), 370/370 VUs, 74690 complete and 0 interrupted iterations
+process_endpoint   [  53% ] 250 VUs  0m48.0s/1m30s
+status_endpoint    [  53% ] 120 VUs  0m48.0s/1m30s
+
+running (0m49.0s), 370/370 VUs, 76236 complete and 0 interrupted iterations
+process_endpoint   [  54% ] 250 VUs  0m49.0s/1m30s
+status_endpoint    [  54% ] 120 VUs  0m49.0s/1m30s
+
+running (0m50.0s), 370/370 VUs, 77805 complete and 0 interrupted iterations
+process_endpoint   [  56% ] 250 VUs  0m50.0s/1m30s
+status_endpoint    [  56% ] 120 VUs  0m50.0s/1m30s
+
+running (0m51.0s), 370/370 VUs, 79348 complete and 0 interrupted iterations
+process_endpoint   [  57% ] 250 VUs  0m51.0s/1m30s
+status_endpoint    [  57% ] 120 VUs  0m51.0s/1m30s
+
+running (0m52.0s), 370/370 VUs, 80902 complete and 0 interrupted iterations
+process_endpoint   [  58% ] 250 VUs  0m52.0s/1m30s
+status_endpoint    [  58% ] 120 VUs  0m52.0s/1m30s
+
+running (0m53.0s), 370/370 VUs, 82451 complete and 0 interrupted iterations
+process_endpoint   [  59% ] 250 VUs  0m53.0s/1m30s
+status_endpoint    [  59% ] 120 VUs  0m53.0s/1m30s
+
+running (0m54.0s), 370/370 VUs, 84010 complete and 0 interrupted iterations
+process_endpoint   [  60% ] 250 VUs  0m54.0s/1m30s
+status_endpoint    [  60% ] 120 VUs  0m54.0s/1m30s
+
+running (0m55.0s), 370/370 VUs, 85565 complete and 0 interrupted iterations
+process_endpoint   [  61% ] 250 VUs  0m55.0s/1m30s
+status_endpoint    [  61% ] 120 VUs  0m55.0s/1m30s
+
+running (0m56.0s), 370/370 VUs, 87117 complete and 0 interrupted iterations
+process_endpoint   [  62% ] 250 VUs  0m56.0s/1m30s
+status_endpoint    [  62% ] 120 VUs  0m56.0s/1m30s
+
+running (0m57.0s), 370/370 VUs, 88679 complete and 0 interrupted iterations
+process_endpoint   [  63% ] 250 VUs  0m57.0s/1m30s
+status_endpoint    [  63% ] 120 VUs  0m57.0s/1m30s
+
+running (0m58.0s), 370/370 VUs, 90216 complete and 0 interrupted iterations
+process_endpoint   [  64% ] 250 VUs  0m58.0s/1m30s
+status_endpoint    [  64% ] 120 VUs  0m58.0s/1m30s
+
+running (0m59.0s), 370/370 VUs, 91764 complete and 0 interrupted iterations
+process_endpoint   [  66% ] 250 VUs  0m59.0s/1m30s
+status_endpoint    [  66% ] 120 VUs  0m59.0s/1m30s
+
+running (1m00.0s), 370/370 VUs, 93305 complete and 0 interrupted iterations
+process_endpoint   [  67% ] 250 VUs  1m00.0s/1m30s
+status_endpoint    [  67% ] 120 VUs  1m00.0s/1m30s
+
+running (1m01.0s), 370/370 VUs, 94868 complete and 0 interrupted iterations
+process_endpoint   [  68% ] 250 VUs  1m01.0s/1m30s
+status_endpoint    [  68% ] 120 VUs  1m01.0s/1m30s
+
+running (1m02.0s), 370/370 VUs, 96414 complete and 0 interrupted iterations
+process_endpoint   [  69% ] 250 VUs  1m02.0s/1m30s
+status_endpoint    [  69% ] 120 VUs  1m02.0s/1m30s
+
+running (1m03.0s), 370/370 VUs, 97973 complete and 0 interrupted iterations
+process_endpoint   [  70% ] 250 VUs  1m03.0s/1m30s
+status_endpoint    [  70% ] 120 VUs  1m03.0s/1m30s
+
+running (1m04.0s), 370/370 VUs, 99534 complete and 0 interrupted iterations
+process_endpoint   [  71% ] 250 VUs  1m04.0s/1m30s
+status_endpoint    [  71% ] 120 VUs  1m04.0s/1m30s
+
+running (1m05.0s), 370/370 VUs, 101071 complete and 0 interrupted iterations
+process_endpoint   [  72% ] 250 VUs  1m05.0s/1m30s
+status_endpoint    [  72% ] 120 VUs  1m05.0s/1m30s
+
+running (1m06.0s), 370/370 VUs, 102627 complete and 0 interrupted iterations
+process_endpoint   [  73% ] 250 VUs  1m06.0s/1m30s
+status_endpoint    [  73% ] 120 VUs  1m06.0s/1m30s
+
+running (1m07.0s), 370/370 VUs, 104177 complete and 0 interrupted iterations
+process_endpoint   [  74% ] 250 VUs  1m07.0s/1m30s
+status_endpoint    [  74% ] 120 VUs  1m07.0s/1m30s
+
+running (1m08.0s), 370/370 VUs, 105740 complete and 0 interrupted iterations
+process_endpoint   [  76% ] 250 VUs  1m08.0s/1m30s
+status_endpoint    [  76% ] 120 VUs  1m08.0s/1m30s
+
+running (1m09.0s), 370/370 VUs, 107291 complete and 0 interrupted iterations
+process_endpoint   [  77% ] 250 VUs  1m09.0s/1m30s
+status_endpoint    [  77% ] 120 VUs  1m09.0s/1m30s
+
+running (1m10.0s), 370/370 VUs, 108846 complete and 0 interrupted iterations
+process_endpoint   [  78% ] 250 VUs  1m10.0s/1m30s
+status_endpoint    [  78% ] 120 VUs  1m10.0s/1m30s
+
+running (1m11.0s), 370/370 VUs, 110394 complete and 0 interrupted iterations
+process_endpoint   [  79% ] 250 VUs  1m11.0s/1m30s
+status_endpoint    [  79% ] 120 VUs  1m11.0s/1m30s
+
+running (1m12.0s), 370/370 VUs, 111936 complete and 0 interrupted iterations
+process_endpoint   [  80% ] 250 VUs  1m12.0s/1m30s
+status_endpoint    [  80% ] 120 VUs  1m12.0s/1m30s
+
+running (1m13.0s), 370/370 VUs, 113489 complete and 0 interrupted iterations
+process_endpoint   [  81% ] 250 VUs  1m13.0s/1m30s
+status_endpoint    [  81% ] 120 VUs  1m13.0s/1m30s
+
+running (1m14.0s), 370/370 VUs, 115038 complete and 0 interrupted iterations
+process_endpoint   [  82% ] 250 VUs  1m14.0s/1m30s
+status_endpoint    [  82% ] 120 VUs  1m14.0s/1m30s
+
+running (1m15.0s), 370/370 VUs, 116596 complete and 0 interrupted iterations
+process_endpoint   [  83% ] 250 VUs  1m15.0s/1m30s
+status_endpoint    [  83% ] 120 VUs  1m15.0s/1m30s
+
+running (1m16.0s), 370/370 VUs, 118146 complete and 0 interrupted iterations
+process_endpoint   [  84% ] 250 VUs  1m16.0s/1m30s
+status_endpoint    [  84% ] 120 VUs  1m16.0s/1m30s
+
+running (1m17.0s), 370/370 VUs, 119691 complete and 0 interrupted iterations
+process_endpoint   [  86% ] 250 VUs  1m17.0s/1m30s
+status_endpoint    [  86% ] 120 VUs  1m17.0s/1m30s
+
+running (1m18.0s), 370/370 VUs, 121243 complete and 0 interrupted iterations
+process_endpoint   [  87% ] 250 VUs  1m18.0s/1m30s
+status_endpoint    [  87% ] 120 VUs  1m18.0s/1m30s
+
+running (1m19.0s), 370/370 VUs, 122793 complete and 0 interrupted iterations
+process_endpoint   [  88% ] 250 VUs  1m19.0s/1m30s
+status_endpoint    [  88% ] 120 VUs  1m19.0s/1m30s
+
+running (1m20.0s), 370/370 VUs, 124361 complete and 0 interrupted iterations
+process_endpoint   [  89% ] 250 VUs  1m20.0s/1m30s
+status_endpoint    [  89% ] 120 VUs  1m20.0s/1m30s
+
+running (1m21.0s), 370/370 VUs, 125904 complete and 0 interrupted iterations
+process_endpoint   [  90% ] 250 VUs  1m21.0s/1m30s
+status_endpoint    [  90% ] 120 VUs  1m21.0s/1m30s
+
+running (1m22.0s), 370/370 VUs, 127466 complete and 0 interrupted iterations
+process_endpoint   [  91% ] 250 VUs  1m22.0s/1m30s
+status_endpoint    [  91% ] 120 VUs  1m22.0s/1m30s
+
+running (1m23.0s), 370/370 VUs, 129015 complete and 0 interrupted iterations
+process_endpoint   [  92% ] 250 VUs  1m23.0s/1m30s
+status_endpoint    [  92% ] 120 VUs  1m23.0s/1m30s
+
+running (1m24.0s), 370/370 VUs, 130571 complete and 0 interrupted iterations
+process_endpoint   [  93% ] 250 VUs  1m24.0s/1m30s
+status_endpoint    [  93% ] 120 VUs  1m24.0s/1m30s
+
+running (1m25.0s), 370/370 VUs, 132115 complete and 0 interrupted iterations
+process_endpoint   [  94% ] 250 VUs  1m25.0s/1m30s
+status_endpoint    [  94% ] 120 VUs  1m25.0s/1m30s
+
+running (1m26.0s), 370/370 VUs, 133661 complete and 0 interrupted iterations
+process_endpoint   [  96% ] 250 VUs  1m26.0s/1m30s
+status_endpoint    [  96% ] 120 VUs  1m26.0s/1m30s
+
+running (1m27.0s), 370/370 VUs, 135221 complete and 0 interrupted iterations
+process_endpoint   [  97% ] 250 VUs  1m27.0s/1m30s
+status_endpoint    [  97% ] 120 VUs  1m27.0s/1m30s
+
+running (1m28.0s), 370/370 VUs, 136773 complete and 0 interrupted iterations
+process_endpoint   [  98% ] 250 VUs  1m28.0s/1m30s
+status_endpoint    [  98% ] 120 VUs  1m28.0s/1m30s
+
+running (1m29.0s), 370/370 VUs, 138334 complete and 0 interrupted iterations
+process_endpoint   [  99% ] 250 VUs  1m29.0s/1m30s
+status_endpoint    [  99% ] 120 VUs  1m29.0s/1m30s
+
+running (1m30.0s), 370/370 VUs, 139885 complete and 0 interrupted iterations
+process_endpoint   [ 100% ] 250 VUs  1m30.0s/1m30s
+status_endpoint    [ 100% ] 120 VUs  1m30.0s/1m30s
+
+
+  █ THRESHOLDS 
+
+    http_req_failed
+    ✓ 'rate<0.01' rate=0.30%
+
+    process_latency
+    ✓ 'p(99)<5000' p(99)=269.45ms
+
+    status_latency
+    ✓ 'p(99)<1000' p(99)=220.39ms
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 140289 1554.254665/s
+    checks_succeeded...: 99.69% 139860 out of 140289
+    checks_failed......: 0.30%  429 out of 140289
+
+    ✗ status 200
+      ↳  99% — ✓ 52055 / ✗ 152
+    ✗ process 200
+      ↳  99% — ✓ 87805 / ✗ 277
+
+    CUSTOM
+    process_errors.................: 277    3.068869/s
+    process_latency................: avg=255.68ms min=0s      med=256.91ms max=327.78ms p(90)=264.41ms p(95)=266.4ms 
+    status_errors..................: 152    1.684/s
+    status_latency.................: avg=207.03ms min=0s      med=207.89ms max=277.53ms p(90)=215.66ms p(95)=217.02ms
+
+    HTTP
+    http_req_duration..............: avg=237.58ms min=0s      med=251.34ms max=327.78ms p(90)=262.52ms p(95)=265.18ms
+      { expected_response:true }...: avg=238.3ms  min=30.48ms med=251.38ms max=327.78ms p(90)=262.53ms p(95)=265.19ms
+    http_req_failed................: 0.30%  429 out of 140289
+    http_reqs......................: 140289 1554.254665/s
+
+    EXECUTION
+    iteration_duration.............: avg=237.67ms min=1.35ms  med=251.38ms max=343.78ms p(90)=262.56ms p(95)=265.23ms
+    iterations.....................: 140289 1554.254665/s
+    vus............................: 370    min=370           max=370
+    vus_max........................: 370    min=370           max=370
+
+    NETWORK
+    data_received..................: 51 MB  567 kB/s
+    data_sent......................: 11 MB  125 kB/s
+
+
+
+
+running (1m30.3s), 000/370 VUs, 140289 complete and 0 interrupted iterations
+process_endpoint ✓ [ 100% ] 250 VUs  1m30s
+status_endpoint  ✓ [ 100% ] 120 VUs  1m30s
