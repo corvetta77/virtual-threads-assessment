@@ -34,7 +34,7 @@ jobs:
         run: python3 scripts/aggregate-results.py
 
       - name: Prepare pages artifact
-        run: cp results/benchmark-chart.html index.html
+        run: cp results/benchmark-chart.html chart.html
       
       - uses: actions/configure-pages@v5
 

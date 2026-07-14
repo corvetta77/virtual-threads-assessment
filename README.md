@@ -63,8 +63,8 @@ java -jar build/libs/*.jar --spring.profiles.active=virtual
 
 ## Results
 
-Results are committed under `results/`. The aggregated interactive chart is published via GitHub Pages:  
-**[View live benchmark chart](https://corvetta77.github.io/virtual-threads-assessment/)**
+Results are committed under `results/`. The aggregated interactive chart is published via GitHub Pages, results of my simulation:  
+**[View benchmark chart](https://corvetta77.github.io/virtual-threads-assessment/chart.html)**
 
 Metrics captured per run: p50/p95/p99 latency, request rate, error rate, and thread count via `monitor.sh`.
 
