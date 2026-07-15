@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Java Virtual Threads Benchmark</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg:#0f1117;--surface:#1a1d2e;--surface2:#252840;--border:#2e3150;
+    --text:#e2e8f0;--sub:#94a3b8;--red:#ef5350;--blue:#42a5f5;--amber:#ffa726;--green:#66bb6a;
+    --red-dim:rgba(239,83,80,.15);--blue-dim:rgba(66,165,245,.15);
+    --amber-dim:rgba(255,167,38,.15);--green-dim:rgba(102,187,106,.15);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;padding:28px 18px 60px}
+  h1{text-align:center;font-size:1.85rem;font-weight:700;
+      background:linear-gradient(135deg,#42a5f5,#66bb6a);-webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px}
+  .sub{text-align:center;color:var(--sub);font-size:.88rem;margin-bottom:22px;line-height:1.6}
+  .sub b{color:var(--text)}
+
+  /* ── legend ── */
+  .legend{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:28px}
+  .leg{display:flex;align-items:center;gap:7px;font-size:.82rem;color:var(--sub)}
+  .dot{width:12px;height:12px;border-radius:3px;flex-shrink:0}
+
+  /* ── section heading ── */
+  .section-title{
+    grid-column:1/-1;font-size:.7rem;font-weight:700;text-transform:uppercase;
+    letter-spacing:.1em;color:var(--sub);padding:6px 0 2px;
+    border-bottom:1px solid var(--border);margin-bottom:4px
+  }
+
+  /* ── tradeoff scorecards (top row) ── */
+  .scorecard-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:14px;max-width:1440px;margin:0 auto 24px
+  }
+  .sc{background:var(--surface);border:1px solid var(--border);border-radius:14px;
+       padding:16px 18px;position:relative;overflow:hidden}
+  .sc::before{content:'';position:absolute;inset:0;opacity:.06;pointer-events:none}
+  .sc.win-virt::before{background:var(--green)}
+  .sc.win-plat::before{background:var(--amber)}
+  .sc-label{font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--sub);margin-bottom:4px}
+  .sc-value{font-size:2rem;font-weight:800;line-height:1}
+  .sc-value.up{color:var(--green)}.sc-value.down{color:var(--blue)}.sc-value.warn{color:var(--amber)}
+  .sc-desc{font-size:.73rem;color:var(--sub);margin-top:5px;line-height:1.4}
+  .sc-badge{display:inline-block;padding:2px 8px;border-radius:20px;font-size:.68rem;font-weight:700;margin-top:6px}
+  .badge-virt{background:rgba(102,187,106,.2);color:var(--green)}
+  .badge-plat{background:rgba(255,167,38,.2);color:var(--amber)}
+
+  /* ── charts grid ── */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:18px;max-width:1440px;margin:0 auto}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px}
+  .card.wide{grid-column:1/-1}
+  .ct{font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--sub);margin-bottom:2px}
+  .cm{font-size:1rem;font-weight:700;margin-bottom:14px;display:flex;align-items:baseline;gap:8px}
+  .hint{font-size:.7rem;color:var(--sub);font-weight:400}
+  /* winner highlight badge in chart title */
+  .win-tag{font-size:.65rem;font-weight:700;padding:2px 7px;border-radius:10px}
+  .wt-v{background:rgba(102,187,106,.2);color:var(--green)}
+  .wt-p{background:rgba(255,167,38,.2);color:var(--amber)}
+  .wrap{position:relative;height:230px}
+  .wrap.tall{height:190px}
+
+  /* ── comparison table ── */
+  table{width:100%;border-collapse:collapse;font-size:.8rem}
+  th{text-align:left;padding:8px 10px;color:var(--sub);font-weight:600;
+      border-bottom:1px solid var(--border);font-size:.7rem;text-transform:uppercase}
+  td{padding:7px 10px;border-bottom:1px solid var(--border)}
+  tr:last-child td{border-bottom:none}
+  .better{color:var(--green);font-weight:700}
+  .worse{color:var(--red)}
+  .neutral{color:var(--sub)}
+  .badge{display:inline-block;padding:1px 7px;border-radius:10px;font-size:.72rem;font-weight:600}
+  .v{background:rgba(66,165,245,.18);color:#42a5f5}.p{background:rgba(239,83,80,.18);color:#ef5350}
+
+  .footer{text-align:center;margin-top:36px;color:var(--sub);font-size:.74rem;line-height:1.9}
+  .tag{display:inline-block;background:var(--surface2);border:1px solid var(--border);
+        border-radius:20px;padding:2px 9px;font-size:.71rem;margin:2px}
+</style>
+</head>
+<body>
+<h1>Java Virtual Threads — Benchmark Results</h1>
+<p class="sub">Spring Boot 4 · Project Loom · <b>250 concurrent VUs</b> · I/O-bound + CPU work (SHA-256, 4KB blobs, 80ms blocking)<br>
+2 pod profiles · <b>3 series each</b> · bars = avg · dots = individual runs</p>
+
+<div class="legend">
+  <div class="leg"><div class="dot" style="background:var(--red)"></div>500m · Platform (50-thread Tomcat pool)</div>
+  <div class="leg"><div class="dot" style="background:var(--blue)"></div>500m · Virtual Threads</div>
+  <div class="leg"><div class="dot" style="background:var(--amber)"></div>1CPU · Platform (100-thread Tomcat pool)</div>
+  <div class="leg"><div class="dot" style="background:var(--green)"></div>1CPU · Virtual Threads</div>
+</div>
+
+<!-- ── Tradeoff scorecards ── -->
+<div class="scorecard-grid" id="scorecards"></div>
+
+<!-- ── Charts ── -->
+<div class="grid">
+
+  <div class="section-title">Throughput &amp; Latency</div>
+
+  <div class="card wide">
+    <div class="ct">Throughput</div>
+    <div class="cm">Requests / second <span class="hint">higher is better ↑</span> <span class="win-tag wt-v">Virtual wins</span></div>
+    <div class="wrap tall"><canvas id="cThroughput"></canvas></div>
+  </div>
+
+  <div class="card">
+    <div class="ct">/api/process — Average Latency</div>
+    <div class="cm">milliseconds <span class="hint">lower is better ↓</span> <span class="win-tag wt-v">Virtual wins</span></div>
+    <div class="wrap"><canvas id="cProcAvg"></canvas></div>
+  </div>
+
+  <div class="card">
+    <div class="ct">/api/process — p99 Latency</div>
+    <div class="cm">milliseconds <span class="hint">lower is better ↓</span> <span class="win-tag wt-v">Virtual wins</span></div>
+    <div class="wrap"><canvas id="cProcP99"></canvas></div>
+  </div>
+
+  <div class="card">
+    <div class="ct">/api/status — Average Latency</div>
+    <div class="cm">milliseconds <span class="hint">lower is better ↓</span> <span class="win-tag wt-v">Virtual wins</span></div>
+    <div class="wrap"><canvas id="cStatAvg"></canvas></div>
+  </div>
+
+  <div class="card">
+    <div class="ct">/api/status — p99 Latency</div>
+    <div class="cm">milliseconds <span class="hint">lower is better ↓</span> <span class="win-tag wt-v">Virtual wins</span></div>
+    <div class="wrap"><canvas id="cStatP99"></canvas></div>
+  </div>
+
+  <div class="card">
+    <div class="ct">Error Rate</div>
+    <div class="cm">percent <span class="hint">lower is better ↓</span> <span class="win-tag wt-v">Virtual wins</span></div>
+    <div class="wrap"><canvas id="cErr"></canvas></div>
+  </div>
+
+  <div class="section-title">Resource Usage — Tradeoffs</div>
+
+  <div class="card">
+    <div class="ct">Peak OS Threads</div>
+    <div class="cm">count <span class="hint">lower = less OS overhead ↓</span> <span class="win-tag wt-v">Virtual wins</span></div>
+    <div class="wrap"><canvas id="cThreads"></canvas></div>
+  </div>
+
+  <div class="card">
+    <div class="ct">Peak Heap Used</div>
+    <div class="cm">MB <span class="hint">↑ higher under virtual (more concurrency)</span> <span class="win-tag wt-p">Platform lower</span></div>
+    <div class="wrap"><canvas id="cHeap"></canvas></div>
+  </div>
+
+  <div class="card">
+    <div class="ct">Peak RSS Memory</div>
+    <div class="cm">MB (resident set) <span class="hint">↑ virtual uses more RAM</span> <span class="win-tag wt-p">Platform lower</span></div>
+    <div class="wrap"><canvas id="cRss"></canvas></div>
+  </div>
+
+  <div class="card">
+    <div class="ct">CPU — Peak %</div>
+    <div class="cm">percent <span class="hint">↑ virtual uses more CPU (doing more work)</span> <span class="win-tag wt-v">Virtual: efficient</span></div>
+    <div class="wrap"><canvas id="cCpuMax"></canvas></div>
+  </div>
+
+  <div class="card">
+    <div class="ct">CPU — Average %</div>
+    <div class="cm">percent over test duration</div>
+    <div class="wrap"><canvas id="cCpuAvg"></canvas></div>
+  </div>
+
+  <div class="section-title">GC Pressure</div>
+
+  <div class="card">
+    <div class="ct">GC Events (total during test)</div>
+    <div class="cm">count <span class="hint">↑ more GC under virtual (more allocation)</span> <span class="win-tag wt-p">Platform lower</span></div>
+    <div class="wrap"><canvas id="cGcEvents"></canvas></div>
+  </div>
+
+  <div class="card">
+    <div class="ct">GC Pause Total</div>
+    <div class="cm">milliseconds <span class="hint">cumulative stop-the-world time</span></div>
+    <div class="wrap"><canvas id="cGcPause"></canvas></div>
+  </div>
+
+  <!-- Full comparison table -->
+  <div class="card wide">
+    <div class="ct">Full Comparison — Averaged across 3 series</div>
+    <div class="cm" style="margin-bottom:12px">All metrics · green = better · red = worse · relative to platform threads baseline</div>
+    <div style="overflow-x:auto"><table id="cmpTable">
+      <thead><tr>
+        <th>Profile</th><th>Mode</th>
+        <th>Throughput (req/s)</th><th>ProcAvg (ms)</th><th>Proc p99 (ms)</th>
+        <th>StatAvg (ms)</th><th>Stat p99 (ms)</th><th>Errors (%)</th>
+        <th>OS Threads</th><th>Heap (MB)</th><th>RSS (MB)</th>
+        <th>CPU avg (%)</th><th>GC events</th><th>GC pause (ms)</th>
+      </tr></thead>
+      <tbody id="cmpBody"></tbody>
+    </table></div>
+  </div>
+
+  <!-- Raw series table -->
+  <div class="card wide">
+    <div class="ct">Raw Data — Individual Series</div>
+    <div class="cm" style="margin-bottom:12px">Per-run values</div>
+    <div style="overflow-x:auto"><table>
+      <thead><tr>
+        <th>Profile</th><th>Mode</th>
+        <th>S1 req/s</th><th>S2 req/s</th><th>S3 req/s</th>
+        <th>S1 PAvg</th><th>S2 PAvg</th><th>S3 PAvg</th>
+        <th>S1 p99</th><th>S2 p99</th><th>S3 p99</th>
+        <th>S1 Thr</th><th>S2 Thr</th><th>S3 Thr</th>
+        <th>S1 Heap</th><th>S2 Heap</th><th>S3 Heap</th>
+        <th>S1 GC</th><th>S2 GC</th><th>S3 GC</th>
+      </tr></thead>
+      <tbody id="rawBody"></tbody>
+    </table></div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <p>Spring Boot 4.0 · Java 26 · Project Loom Virtual Threads · k6 · 3×90s runs per config</p>
+  <p>Workload: batch SHA-256 of 4KB blobs + 2000-sample histogram + 80ms/30ms blocking I/O</p><br>
+  <span class="tag">#JavaVirtualThreads</span><span class="tag">#ProjectLoom</span>
+  <span class="tag">#SpringBoot</span><span class="tag">#Java26</span>
+  <span class="tag">#PerformanceBenchmark</span><span class="tag">#Kubernetes</span>
+</div>
+
+<script>
+const LABELS = ["500m \u00b7 Platform", "500m \u00b7 Virtual", "1CPU \u00b7 Platform", "1CPU \u00b7 Virtual"];
+const BG  = ["rgba(239, 83, 80, 0.85)", "rgba(66, 165, 245, 0.85)", "rgba(255, 167, 38, 0.85)", "rgba(102, 187, 106, 0.85)"];
+const BD  = ["rgba(239, 83, 80, 1)", "rgba(66, 165, 245, 1)", "rgba(255, 167, 38, 1)", "rgba(102, 187, 106, 1)"];
+
+const AVG = {
+  throughput: [759.13, 6767.87, 1552.65, 6809.85],
+  procAvg:    [502.66, 82.41, 255.67, 82.05],
+  procP99:    [522.64, 96.24, 269.45, 95.64],
+  statAvg:    [454.43, 32.04, 207.54, 31.8],
+  statP99:    [475.45, 41.45, 220.39, 42.12],
+  errRate:    [0.4, 0.05, 0.26, 0.05],
+  threads:    [64, 17, 114, 17],
+  heap:       [54.0, 273.33, 87.33, 368.67],
+  rss:        [240.47, 449.2, 249.03, 435.27],
+  cpuMax:     [62.67, 212.77, 113.3, 212.43],
+  cpuAvg:     [29.4, 104.77, 42.1, 103.17],
+  gcEvents:   [186, 307.67, 291, 285.67],
+  gcPause:    ['null', 'null', 'null', 'null'],
+};
+
+const PS = {
+  throughput: [[758.66051, 759.385957, 759.127417], [6817.735048, 6767.871487, 3167.299052], [1552.654179, 1554.254665, 1552.146017], [6809.849443, 6818.292549, 6778.880551]],
+  procAvg:    [[502.79, 501.92, 502.66], [82.01, 82.41, 175.78], [255.67, 255.68, 255.42], [82.05, 81.98, 82.26]],
+  procP99:    [[524.35, 522.64, 520.57], [96.24, 94.39, 106.7], [269.03, 269.45, 271.44], [95.64, 91.93, 96.44]],
+  statAvg:    [[454.43, 454.91, 454.19], [31.74, 32.04, 68.67], [207.54, 207.03, 208.21], [31.8, 31.76, 32.0]],
+  statP99:    [[475.52, 475.45, 472.43], [41.45, 41.21, 45.38], [220.11, 220.39, 223.55], [42.12, 40.66, 43.17]],
+  errRate:    [[0.39, 0.44, 0.36], [0.06, 0.06, 0.04], [0.19, 0.3, 0.28], [0.05, 0.05, 0.05]],
+  threads:    [[64, 64, 64], [17, 17, 17], [114, 114, 114], [17, 17, 17]],
+  heap:       [[57.0, 57.0, 48.0], [276.0, 279.0, 265.0], [90.0, 85.0, 87.0], [365.0, 361.0, 380.0]],
+  rss:        [[226.5, 257.7, 237.2], [461.8, 444.3, 441.5], [253.2, 248.9, 245.0], [437.3, 453.5, 415.0]],
+  cpuMax:     [[68.8, 59.4, 59.8], [213.7, 212.6, 212.0], [130.1, 98.7, 111.1], [212.6, 212.6, 212.1]],
+  cpuAvg:     [[31.5, 27.8, 28.9], [102.3, 105.6, 106.4], [39.9, 43.6, 42.8], [101.7, 102.2, 105.6]],
+  gcEvents:   [[182, 186, 190], [315, 304, 304], [287, 290, 296], [278, 294, 285]],
+  gcPause:    [[], [], [], []],
+};
+
+// ── Chart helpers ──────────────────────────────────────────────────────────
+const baseOpts = (unit, horizontal) => ({
+  responsive:true, maintainAspectRatio:false, animation:{duration:500},
+  plugins:{
+    legend:{display:false},
+    tooltip:{
+      backgroundColor:'rgba(26,29,46,.97)',borderColor:'#2e3150',borderWidth:1,
+      titleColor:'#e2e8f0',bodyColor:'#94a3b8',padding:10,
+      callbacks:{ label: ctx => {
+        const v = horizontal ? ctx.parsed.x : ctx.parsed.y;
+        return v != null ? ` ${ctx.dataset.label||''}: ${v.toFixed(1)} ${unit}` : ' N/A';
+      }}
+    }
+  },
+  scales:{
+    x:{grid:{color:'rgba(46,49,80,.5)'},ticks:{color:'#94a3b8',font:{size:10}}},
+    y:{grid:{color:'rgba(46,49,80,.5)'},ticks:{color:'#94a3b8',font:{size:10}},suggestedMin:0}
+  }
+});
+
+function makeGrouped(avgArr, psArr) {
+  const bars = LABELS.map((lbl,i) => ({
+    type:'bar', label:lbl, data:[avgArr[i]],
+    backgroundColor:BG[i], borderColor:BD[i], borderWidth:2, borderRadius:5, borderSkipped:false,
+  }));
+  const dots = LABELS.map((lbl,i) => ({
+    type:'scatter', label:lbl+' runs',
+    data:(psArr[i]||[]).map(v=>v!=null?{x:0,y:v}:null).filter(Boolean),
+    backgroundColor:BD[i], pointRadius:5, pointHoverRadius:7, showLine:false,
+  }));
+  return {labels:[''], datasets:[...bars,...dots]};
+}
+
+function makeThroughput() {
+  return {
+    labels: LABELS,
+    datasets: [
+      { type:'bar', label:'avg', data:AVG.throughput, backgroundColor:BG, borderColor:BD,
+         borderWidth:2, borderRadius:5, borderSkipped:false },
+      ...LABELS.map((lbl,i) => ({
+        type:'scatter', label:lbl+' runs',
+        data:(PS.throughput[i]||[]).map((v,_)=>v!=null?{y:i,x:v}:null).filter(Boolean),
+        backgroundColor:BD[i], pointRadius:6, pointHoverRadius:8
+      }))
+    ]
+  };
+}
+
+const horiz = {
+  ...baseOpts('req/s',true), indexAxis:'y',
+  scales:{
+    x:{grid:{color:'rgba(46,49,80,.5)'},ticks:{color:'#94a3b8',font:{size:10}},suggestedMin:0},
+    y:{grid:{color:'rgba(46,49,80,.5)'},ticks:{color:'#e2e8f0',font:{size:11,weight:'600'}}}
+  }
+};
+
+new Chart(document.getElementById('cThroughput'), {type:'bar',data:makeThroughput(),options:horiz});
+
+[
+  ['cProcAvg',  AVG.procAvg,   PS.procAvg,  'ms'],
+  ['cProcP99',  AVG.procP99,   PS.procP99,  'ms'],
+  ['cStatAvg',  AVG.statAvg,   PS.statAvg,  'ms'],
+  ['cStatP99',  AVG.statP99,   PS.statP99,  'ms'],
+  ['cErr',      AVG.errRate,   PS.errRate,  '%'],
+  ['cThreads',  AVG.threads,   PS.threads,  'threads'],
+  ['cHeap',     AVG.heap,      PS.heap,     'MB'],
+  ['cRss',      AVG.rss,       PS.rss,      'MB'],
+  ['cCpuMax',   AVG.cpuMax,    PS.cpuMax,   '%'],
+  ['cCpuAvg',   AVG.cpuAvg,    PS.cpuAvg,   '%'],
+  ['cGcEvents', AVG.gcEvents,  PS.gcEvents, 'events'],
+  ['cGcPause',  AVG.gcPause,   PS.gcPause,  'ms'],
+].forEach(([id, avg, ps, unit]) => {
+  new Chart(document.getElementById(id), {data:makeGrouped(avg,ps), options:baseOpts(unit,false)});
+});
+
+// ── Scorecards ─────────────────────────────────────────────────────────────
+function ratio(a,b){ return (!a||!b||a===0) ? null : b/a; }
+function fmtPct(r, higherBetter){
+  if(r===null) return '—';
+  const delta = r - 1;
+  const sign = delta >= 0 ? '+' : '';
+  const cls = (higherBetter ? delta>=0 : delta<=0) ? 'up' : 'warn';
+  return {text: sign+Math.round(delta*100)+'%', cls};
+}
+function fmtX(r){
+  if(!r) return {text:'—',cls:'neutral'};
+  return {text: r.toFixed(1)+'×', cls: r>=1.5?'up':'neutral'};
+}
+
+// 500m: virt vs plat
+const tp500  = ratio(AVG.throughput[0], AVG.throughput[1]);
+const lat500 = ratio(AVG.procAvg[0],    AVG.procAvg[1]);
+const err500 = ratio(AVG.errRate[0],    AVG.errRate[1]);
+const thr500 = ratio(AVG.threads[0],    AVG.threads[1]);
+const hp500  = ratio(AVG.heap[0],       AVG.heap[1]);
+const gc500  = ratio(AVG.gcEvents[0],   AVG.gcEvents[1]);
+// 1cpu: virt vs plat
+const tp1cpu  = ratio(AVG.throughput[2], AVG.throughput[3]);
+const lat1cpu = ratio(AVG.procAvg[2],    AVG.procAvg[3]);
+
+const cards = [
+  { label:'Throughput gain', sub:'virtual vs platform (500m)', r:tp500, hb:true, badge:'badge-virt', badgeText:'virtual threads win' },
+  { label:'Throughput gain', sub:'virtual vs platform (1cpu)',  r:tp1cpu, hb:true, badge:'badge-virt', badgeText:'virtual threads win' },
+  { label:'Latency reduction', sub:'/api/process avg (500m)', r:lat500, hb:false, badge:'badge-virt', badgeText:'virtual threads win' },
+  { label:'Latency reduction', sub:'/api/process avg (1cpu)',  r:lat1cpu, hb:false, badge:'badge-virt', badgeText:'virtual threads win' },
+  { label:'Error rate change', sub:'500m virtual vs platform', r:err500, hb:false, badge:err500&&err500<1?'badge-virt':'badge-plat', badgeText:err500&&err500<1?'fewer errors':'more errors' },
+  { label:'OS thread reduction', sub:'500m virtual vs platform', r:thr500, hb:false, badge:'badge-virt', badgeText:'far fewer OS threads' },
+  { label:'Heap overhead', sub:'virtual uses more (more concurrency)', r:hp500, hb:false, badge:'badge-plat', badgeText:'platform uses less heap' },
+  { label:'GC event delta', sub:'500m virtual vs platform', r:gc500, hb:false, badge:gc500&&gc500>1?'badge-plat':'badge-virt', badgeText:gc500&&gc500>1?'more GC (expected)':'less GC' },
+];
+
+const sc = document.getElementById('scorecards');
+cards.forEach(c => {
+  const f = c.hb ? fmtPct(c.r, true) : fmtPct(c.r, false);
+  const win = c.r!==null && ((c.hb && c.r>1)||(!c.hb && c.r<1));
+  const div = document.createElement('div');
+  div.className = 'sc ' + (win?'win-virt':'win-plat');
+  div.innerHTML = `
+    <div class="sc-label">${c.label}</div>
+    <div class="sc-value ${f.cls||'neutral'}">${f.text}</div>
+    <div class="sc-desc">${c.sub}</div>
+    <span class="sc-badge ${c.badge}">${c.badgeText}</span>
+  `;
+  sc.appendChild(div);
+});
+
+// ── Comparison table ───────────────────────────────────────────────────────
+const CONFIGS = [
+  {prof:'500m', mode:'platform', idx:0},
+  {prof:'500m', mode:'virtual',  idx:1},
+  {prof:'1CPU', mode:'platform', idx:2},
+  {prof:'1CPU', mode:'virtual',  idx:3},
+];
+const tbody = document.getElementById('cmpBody');
+const fmt1 = v => v!=null&&v!=='null' ? Number(v).toFixed(1) : '—';
+
+// baseline per profile: platform = idx 0 (500m) or idx 2 (1cpu)
+function cellClass(val, baseVal, higherBetter){
+  if(val==null||baseVal==null||val==='null'||baseVal==='null') return 'neutral';
+  const better = higherBetter ? Number(val)>Number(baseVal) : Number(val)<Number(baseVal);
+  return better ? 'better' : (val===baseVal ? 'neutral' : 'worse');
+}
+
+CONFIGS.forEach(c => {
+  const isVirt = c.mode==='virtual';
+  const baseIdx = c.prof==='500m' ? 0 : 2;
+  const tr = document.createElement('tr');
+  const fields = [
+    [AVG.throughput, true],[AVG.procAvg,false],[AVG.procP99,false],
+    [AVG.statAvg,false],[AVG.statP99,false],[AVG.errRate,false],
+    [AVG.threads,false],[AVG.heap,false],[AVG.rss,false],
+    [AVG.cpuAvg,false],[AVG.gcEvents,false],[AVG.gcPause,false],
+  ];
+  const cells = fields.map(([arr, hb]) => {
+    const v = arr[c.idx], base = arr[baseIdx];
+    const cls = isVirt ? cellClass(v, base, hb) : 'neutral';
+    return `<td class="${cls}">${fmt1(v)}</td>`;
+  }).join('');
+  tr.innerHTML = `<td>${c.prof}</td><td><span class="badge ${isVirt?'v':'p'}">${c.mode}</span></td>${cells}`;
+  tbody.appendChild(tr);
+});
+
+// ── Raw series table ───────────────────────────────────────────────────────
+const rawBody = document.getElementById('rawBody');
+CONFIGS.forEach(c => {
+  const tr = document.createElement('tr');
+  const cls = c.mode==='virtual'?'v':'p';
+  const s = key => (PS[key][c.idx]||[]);
+  const f = v => v!=null ? Number(v).toFixed(1) : '—';
+  tr.innerHTML = `
+    <td>${c.prof}</td><td><span class="badge ${cls}">${c.mode}</span></td>
+    ${[0,1,2].map(i=>`<td>${f(s('throughput')[i])}</td>`).join('')}
+    ${[0,1,2].map(i=>`<td>${f(s('procAvg')[i])}</td>`).join('')}
+    ${[0,1,2].map(i=>`<td>${f(s('procP99')[i])}</td>`).join('')}
+    ${[0,1,2].map(i=>`<td>${f(s('threads')[i])}</td>`).join('')}
+    ${[0,1,2].map(i=>`<td>${f(s('heap')[i])}</td>`).join('')}
+    ${[0,1,2].map(i=>`<td>${f(s('gcEvents')[i])}</td>`).join('')}
+  `;
+  rawBody.appendChild(tr);
+});
+</script>
+</body>
+</html>

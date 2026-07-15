@@ -12,12 +12,10 @@ build/
 # OS
 .DS_Store
 
-# Benchmark logs (raw CSV data only — summaries are committed)
-results/metrics_*.csv
-results/aggregated.json
-results/benchmark-chart.html
-results/**/app_*.log
-results/**/k6_*.json
+# Benchmark results — keep only the aggregated outputs
+results/
+!results/aggregated.json
+!results/benchmark-chart.html
 
 # Python
 __pycache__/
