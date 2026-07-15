@@ -33,17 +33,36 @@ public class BenchmarkController {
     @GetMapping("/process")
     public ResponseEntity<Map<String, Object>> process() throws InterruptedException {
         // 1. Batch dequeue
-        List<Message> batch = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
-            Message m = messageQueueService.dequeue();
-            if (m == null) break;
-            batch.add(m);
-        }
+        List<Message> batch = createBatch();
 
         // 2. CPU-heavy: SHA-256 every blob + build enriched records
+        List<Map<String, Object>> enriched = createEnriched(batch);
+
+        // 3. Simulate blocking I/O (DB write / downstream HTTP call)
+        Thread.sleep(80);
+
+        // 4. Aggregate
+        Map<String, Long> bySource = enriched.stream()
+                .collect(Collectors.groupingBy(r -> (String) r.get("source"), Collectors.counting()));
+        double avgAge = enriched.stream().mapToLong(r -> (long) r.get("ageMs")).average().orElse(0);
+
+        return ResponseEntity.ok(Map.of(
+                "status", batch.isEmpty() ? "empty_queue" : "processed",
+                "batchSize", batch.size(),
+                "avgMessageAgeMs", Math.round(avgAge),
+                "bySource", bySource,
+                "topMessage", enriched.isEmpty() ? Map.of() : enriched.get(0),
+                "queueSize", messageQueueService.size(),
+                "virtual", Thread.currentThread().isVirtual()));
+    }
+
+    private List<Map<String, Object>> createEnriched(List<Message> batch) {
         MessageDigest sha;
-        try { sha = MessageDigest.getInstance("SHA-256"); }
-        catch (NoSuchAlgorithmException e) { throw new RuntimeException(e); }
+        try {
+            sha = MessageDigest.getInstance("SHA-256");
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
 
         List<Map<String, Object>> enriched = batch.stream()
                 .map(m -> {
@@ -71,24 +90,18 @@ public class BenchmarkController {
                 .filter(r -> (int) r.get("priority") >= 0)
                 .sorted(Comparator.comparingInt(r -> -(int) r.get("priority")))
                 .collect(Collectors.toList());
+        return enriched;
+    }
 
-        // 3. Simulate blocking I/O (DB write / downstream HTTP call)
-        Thread.sleep(80);
-
-        // 4. Aggregate
-        Map<String, Long> bySource = enriched.stream()
-                .collect(Collectors.groupingBy(r -> (String) r.get("source"), Collectors.counting()));
-        double avgAge = enriched.stream().mapToLong(r -> (long) r.get("ageMs")).average().orElse(0);
-
-        Map<String, Object> response = new LinkedHashMap<>();
-        response.put("status", batch.isEmpty() ? "empty_queue" : "processed");
-        response.put("batchSize", batch.size());
-        response.put("avgMessageAgeMs", Math.round(avgAge));
-        response.put("bySource", bySource);
-        response.put("topMessage", enriched.isEmpty() ? null : enriched.get(0));
-        response.put("queueSize", messageQueueService.size());
-        response.put("virtual", Thread.currentThread().isVirtual());
-        return ResponseEntity.ok(response);
+    private List<Message> createBatch() {
+        List<Message> batch = new ArrayList<>();
+        for (int i = 0; i < 20; i++) {
+            Message m = messageQueueService.dequeue();
+            if (m == null)
+                break;
+            batch.add(m);
+        }
+        return batch;
     }
 
     /**
@@ -103,12 +116,27 @@ public class BenchmarkController {
         long dequeued = messageQueueService.getTotalDequeued();
 
         // Allocate a large list to create heap/GC pressure
-        Random rng = new Random(enqueued);
-        List<Long> latencies = new ArrayList<>(2000);
-        for (int i = 0; i < 2000; i++) latencies.add((long)(rng.nextGaussian() * 40 + 80));
-        Collections.sort(latencies);
+        List<Long> latencies = generateLatencies(enqueued);
 
         // Build 20-bucket histogram
+        Map<String, Long> histogram = buildHistogram(latencies);
+
+        // Simulate blocking I/O (cache lookup)
+        Thread.sleep(30);
+
+        return ResponseEntity.ok(Map.of(
+                "queueSize", messageQueueService.size(),
+                "totalEnqueued", enqueued,
+                "totalDequeued", dequeued,
+                "lag", enqueued - dequeued,
+                "p50LatencyMs", latencies.get(1000),
+                "p95LatencyMs", latencies.get(1899),
+                "p99LatencyMs", latencies.get(1979),
+                "latencyHistogram", histogram,
+                "virtual", Thread.currentThread().isVirtual()));
+    }
+
+    private Map<String, Long> buildHistogram(List<Long> latencies) {
         long min = latencies.get(0), max = latencies.get(latencies.size() - 1);
         long step = Math.max(1, (max - min) / 20);
         Map<String, Long> histogram = new LinkedHashMap<>();
@@ -117,25 +145,15 @@ public class BenchmarkController {
             final long flo = lo, fhi = hi;
             histogram.put(lo + "-" + hi, latencies.stream().filter(v -> v >= flo && v < fhi).count());
         }
-
-        // Simulate blocking I/O (cache lookup)
-        Thread.sleep(30);
-
-        return createResponse(enqueued, dequeued, latencies, histogram);
+        return histogram;
     }
 
-    private ResponseEntity<Map<String, Object>> createResponse(long enqueued, long dequeued, List<Long> latencies,
-            Map<String, Long> histogram) {
-        Map<String, Object> response = new LinkedHashMap<>();
-        response.put("queueSize", messageQueueService.size());
-        response.put("totalEnqueued", enqueued);
-        response.put("totalDequeued", dequeued);
-        response.put("lag", enqueued - dequeued);
-        response.put("p50LatencyMs", latencies.get(1000));
-        response.put("p95LatencyMs", latencies.get(1899));
-        response.put("p99LatencyMs", latencies.get(1979));
-        response.put("latencyHistogram", histogram);
-        response.put("virtual", Thread.currentThread().isVirtual());
-        return ResponseEntity.ok(response);
+    private List<Long> generateLatencies(long enqueued) {
+        Random rng = new Random(enqueued);
+        List<Long> latencies = new ArrayList<>(2000);
+        for (int i = 0; i < 2000; i++)
+            latencies.add((long) (rng.nextGaussian() * 40 + 80));
+        Collections.sort(latencies);
+        return latencies;
     }
 }
